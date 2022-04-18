@@ -1,6 +1,6 @@
 import os
 from core.Text import colorText
-import pyttsx3  
+import pyttsx3
 import speech_recognition as sr
 import datetime
 import wikipedia
@@ -9,13 +9,15 @@ import wikipedia
 
 listener = sr.Recognizer()
 engine = pyttsx3.init()
-voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[1].id)
+voices = engine.getProperty("voices")
+engine.setProperty("voice", voices[1].id)
 engine.setProperty("rate", 150)
+
 
 def speak(audio):
     engine.say(audio)
     engine.runAndWait()
+
 
 os.system("cls")
 
@@ -26,22 +28,23 @@ print(colorText(ascii))
 
 ######################## SOME INITIAL FUNCTIONS ####################################
 
+
 def wishMe():
     hour = int(datetime.datetime.now().hour)
-    if hour>=0 and hour<12:
+    if hour >= 0 and hour < 12:
         speak("Good Morning!")
 
-    elif hour>=12 and hour<18:
-        speak("Good Afternoon!")   
+    elif hour >= 12 and hour < 18:
+        speak("Good Afternoon!")
 
     else:
-        speak("Good Evening!")  
+        speak("Good Evening!")
 
-    speak("I am Alexa Sir. Please tell me how may I help you")   
+    speak("I am Alexa Sir. Please tell me how may I help you")
 
 
 def takeCommand():
-    #It takes microphone input from the user and returns string output
+    # It takes microphone input from the user and returns string output
 
     r = sr.Recognizer()
     with sr.Microphone() as source:
@@ -50,30 +53,29 @@ def takeCommand():
         audio = r.listen(source)
 
     try:
-        print("Recognizing...")    
-        query = r.recognize_google(audio, language='en')
+        print("Recognizing...")
+        query = r.recognize_google(audio, language="en")
         print(f"User said: {query}\n")
 
-    except Exception as e: 
-        print("Say that again please...")  
+    except Exception as e:
+        print("Say that again please...")
         return "None"
 
     return query
 
 
-#wishMe()
+# wishMe()
 
 
 while True:
-    #query = takeCommand().lower()
-    query= input("Type command: ")
+    # query = takeCommand().lower()
+    query = input("Type command: ")
 
     # Logic for executing tasks based on query
 
+    if "wikipedia" in query:  # QUERY--> dinosaur wikipedia
 
-    if 'wikipedia' in query:  # QUERY--> dinosaur wikipedia
-
-        speak(f'Searching {query} on Wikipedia...')
+        speak(f"Searching {query} on Wikipedia...")
         try:
             query = query.replace("wikipedia", "")
             results = wikipedia.summary(query, sentences=5)
@@ -81,10 +83,16 @@ while True:
             print(results)
             speak(results)
         except Exception as e:
-            print('An error occured: ',e)
-    
-    elif "open youtube" in query or "open google" in query or "open stackoverflow" in query or "open github" in query:
+            print("An error occured: ", e)
+
+    elif (
+        "open youtube" in query
+        or "open google" in query
+        or "open stackoverflow" in query
+        or "open github" in query
+    ):
         # QUERY--> open youtube etc etc
 
         from modules.browser import web
+
         web(query)
