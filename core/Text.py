@@ -1,6 +1,7 @@
-# Text colors
+# Text color
 
 COLORS = {\
+
 "black":"\u001b[30;1m",
 "red": "\u001b[31;1m",
 "green":"\u001b[32m",
@@ -12,6 +13,7 @@ COLORS = {\
 "yellow-background":"\u001b[43m",
 "black-background":"\u001b[40m",
 "cyan-background":"\u001b[46;1m",
+
 }
 
 
