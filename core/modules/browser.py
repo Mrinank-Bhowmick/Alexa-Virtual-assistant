@@ -19,3 +19,8 @@ def web(query):
     elif "open github" in query:
         speak("opening github for u")
         webbrowser.open("github.com")
+    elif 'open yahoo' in query :
+        
+        speak('opening yahoo for you')
+        
+        webbrowser.open('https://yahoo.com/')
