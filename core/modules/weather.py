@@ -1,7 +1,8 @@
-# get weather without using api key and without using any module or library in python 
+# get weather without using api key and without using any module or library in python
 
 import requests
 from bs4 import BeautifulSoup
+
 
 def weather(query):
     # QUERY--> weather in delhi
@@ -15,4 +16,3 @@ def weather(query):
     s = BeautifulSoup(r.text, "html.parser")
     update = s.find("div", class_="BNeawe").text
     return update
-    
