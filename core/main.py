@@ -96,3 +96,40 @@ while True:
         from modules.browser import web
 
         web(query)
+    
+    elif (
+        "weather" in query
+        or "temperature" in query
+        or "climate" in query
+    ):
+        # QUERY--> weather in delhi
+
+        from modules.weather import weather
+
+        result=weather(query)
+        print(result)
+        speak(result)
+    
+    elif (
+        "time" in query
+        or "date" in query
+        or "day" in query
+    ):
+        # QUERY--> time
+
+        from modules.time import time
+
+        result=time(query)
+        print(result)
+        speak(result)
+    
+    elif "play music" in query:
+        # QUERY--> play music
+
+        from modules.music import play_music
+
+        play_music()
+        
+    elif "exit" in query:
+        speak("Bye sir, have a good day.")
+        exit()
