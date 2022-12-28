@@ -8,14 +8,17 @@ pygame.mixer.init()
 pygame.init()
 
 
-def playmusic():
+def play_music():
+    
     music_list = [
         "Alan Walker  Fade NCS Release.mp3",
-        "Alan Walker  Spectre NCS Release.mp3",
-        "Tobu  Itro  Sunburst NCS Release.mp3",
-        "OnlyMP3.net - Excuses  AP Dhillon  Gurinder Gill  Intense  Banger SZN-vX2cDW8LUWk-192k-1632771183696.mp3",
+        "Duncan Laurence - Arcade (Lyric Video) ft. FLETCHER.mp3",
     ]
     music = random.choice(music_list)
+    
+    # load music file from another directory (music)
+    music = "music_files/" + music  
+    
     pygame.mixer.music.load(music)
     pygame.mixer.music.play()
 
@@ -30,20 +33,3 @@ def pausemusic():
 
 def resumemusic():
     pygame.mixer.music.unpause()
-
-
-def main():
-    while True:
-        query = takeCommand().lower()
-        if "play music" in query:
-            playmusic()
-        elif "stop music" in query:
-            stopmusic()
-        elif "pause music" in query:
-            pausemusic()
-        elif "resume music" in query:
-            resumemusic()
-        elif "exit" in query:
-            exit()
-        else:
-            pass
