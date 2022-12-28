@@ -121,28 +121,28 @@ while True:
         from modules.music import play_music
 
         play_music()
-    
+
     elif "stop music" in query:
         # QUERY--> stop music
 
         from modules.music import stopmusic
 
         stopmusic()
-    
+
     elif "pause music" in query:
         # QUERY--> pause music
 
         from modules.music import pausemusic
 
         pausemusic()
-    
+
     elif "resume music" in query:
         # QUERY--> resume music
 
         from modules.music import resumemusic
 
         resumemusic()
-    
+
     elif "exit" in query:
         speak("Bye sir, have a good day.")
         exit()
