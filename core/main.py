@@ -142,7 +142,23 @@ while True:
         from modules.music import resumemusic
 
         resumemusic()
+     
+    elif "play tictactoe" in query:
+
+        from games.tictactoe import play_game
+
+        play_game() 
     
+    elif "internet" in query or "speed" in query:
+        # QUERY--> internet speed
+
+        from modules.internet import internet
+
+        result = internet(query)
+        print(result)
+        speak(result)
+    
+        
     elif "exit" in query:
         speak("Bye sir, have a good day.")
         exit()
