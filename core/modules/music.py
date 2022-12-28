@@ -9,16 +9,16 @@ pygame.init()
 
 
 def play_music():
-    
+
     music_list = [
         "Alan Walker  Fade NCS Release.mp3",
         "Duncan Laurence - Arcade (Lyric Video) ft. FLETCHER.mp3",
     ]
     music = random.choice(music_list)
-    
+
     # load music file from another directory (music)
-    music = "music_files/" + music  
-    
+    music = "music_files/" + music
+
     pygame.mixer.music.load(music)
     pygame.mixer.music.play()
 
