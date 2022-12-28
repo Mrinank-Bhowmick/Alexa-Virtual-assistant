@@ -1,7 +1,9 @@
 import speedtest
 
+
 def internet(query):
     import speedtest
+
     st = speedtest.Speedtest()
     down = st.download()
     up = st.upload()
