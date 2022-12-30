@@ -1,4 +1,3 @@
-# print the curent time
 import datetime
 
 

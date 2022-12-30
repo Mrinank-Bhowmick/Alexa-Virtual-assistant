@@ -157,6 +157,30 @@ while True:
         result = internet(query)
         print(result)
         speak(result)
+    
+    elif "news" in query:
+        # QUERY--> news
+
+        from modules.news import news
+
+        result = news(query)
+        print(result)
+        speak(result)
+    
+    elif "joke" in query:
+        # QUERY--> joke
+
+        from modules.joke import joke
+
+        result = joke(query)
+        print(result)
+        speak(result)
+    
+    elif "send email" in query:
+        
+        from modules.email import send_email
+
+        send_email()
 
     elif "exit" in query:
         speak("Bye sir, have a good day.")
